@@ -39,8 +39,16 @@ $ npm run start
 4. On the page MyPurchases all NFTs you bought will be there.
 
 ## Examples
-#Creating
+# Creating
 
 ![image](https://user-images.githubusercontent.com/80254372/202808243-f6b86018-eaa3-4946-902e-88a8d1cfeff8.png)
+
+# Buying
+
+![image](https://user-images.githubusercontent.com/80254372/202808430-1df7266d-9243-4613-98ec-5a1c0270ef0e.png)
+
+# My NFTs
+
+
 
 
