@@ -5,14 +5,16 @@ import { Row, Col, Card } from 'react-bootstrap'
 function renderSoldItems(items) {
   return (
     <>
-      <h2>Sold</h2>
+      <h2>My Sold NFTs</h2>
       <Row xs={1} md={2} lg={4} className="g-4 py-3">
         {items.map((item, idx) => (
           <Col key={idx} className="overflow-hidden">
             <Card>
-              <Card.Img variant="top" src={item.image} />
+            <div className="card-img">
+                    <Card.Img variant="top" src={item.image} />
+                  </div>
               <Card.Footer>
-                For {ethers.utils.formatEther(item.totalPrice)} ETH - Recieved {ethers.utils.formatEther(item.price)} ETH
+                For {ethers.utils.formatEther(item.totalPrice)} ETH
               </Card.Footer>
             </Card>
           </Col>
@@ -64,19 +66,21 @@ export default function MyListedItems({ marketplace, nft, account }) {
   }, [])
   if (loading) return (
     <main style={{ padding: "1rem 0" }}>
-      <h2>Loading...</h2>
+      <h2>Wait a sec...</h2>
     </main>
   )
   return (
     <div className="flex justify-center">
       {listedItems.length > 0 ?
         <div className="px-5 py-3 container">
-            <h2>Listed</h2>
+            <h2>My NFTs</h2>
           <Row xs={1} md={2} lg={4} className="g-4 py-3">
             {listedItems.map((item, idx) => (
               <Col key={idx} className="overflow-hidden">
                 <Card>
-                  <Card.Img variant="top" src={item.image} />
+                <div className="card-img">
+                    <Card.Img variant="top" src={item.image} />
+                  </div>
                   <Card.Footer>{ethers.utils.formatEther(item.totalPrice)} ETH</Card.Footer>
                 </Card>
               </Col>
@@ -86,7 +90,7 @@ export default function MyListedItems({ marketplace, nft, account }) {
         </div>
         : (
           <main style={{ padding: "1rem 0" }}>
-            <h2>No listed assets</h2>
+            <h2>Nothing here...</h2>
           </main>
         )}
     </div>

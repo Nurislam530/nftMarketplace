@@ -39,7 +39,7 @@ export default function MyPurchases({ marketplace, nft, account }) {
   }, [])
   if (loading) return (
     <main style={{ padding: "1rem 0" }}>
-      <h2>Loading...</h2>
+      <h2>Wait a sec...</h2>
     </main>
   )
   return (
@@ -50,7 +50,13 @@ export default function MyPurchases({ marketplace, nft, account }) {
             {purchases.map((item, idx) => (
               <Col key={idx} className="overflow-hidden">
                 <Card>
-                  <Card.Img variant="top" src={item.image} />
+                <div className="card-img">
+                    <Card.Img variant="top" src={item.image} />
+                  </div>
+                  <div className="card-name purcha">
+                        <div className="card-of-name">NFT Name</div>
+                        <Card.Text>{item.name}</Card.Text>
+                        </div>
                   <Card.Footer>{ethers.utils.formatEther(item.totalPrice)} ETH</Card.Footer>
                 </Card>
               </Col>

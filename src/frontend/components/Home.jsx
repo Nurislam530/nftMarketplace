@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { ethers } from "ethers"
 import { Row, Col, Card, Button } from 'react-bootstrap'
 
-const Home = ({ marketplace, nft }) => {
+const Home = ({ marketplace, nft, mytoken }) => {
   const [loading, setLoading] = useState(true)
   const [items, setItems] = useState([])
   const loadMarketplaceItems = async () => {
@@ -35,7 +35,7 @@ const Home = ({ marketplace, nft }) => {
   }
 
   const buyMarketItem = async (item) => {
-    await (await marketplace.purchaseItem(item.itemId, { value: item.totalPrice })).wait()
+    await (await marketplace.purchaseItem(item.itemId, mytoken.address)).wait()
     loadMarketplaceItems()
   }
 
@@ -44,7 +44,7 @@ const Home = ({ marketplace, nft }) => {
   }, [])
   if (loading) return (
     <main style={{ padding: "1rem 0" }}>
-      <h2>Loading...</h2>
+      <h2>Wait a sec...</h2>
     </main>
   )
   return (
@@ -55,17 +55,36 @@ const Home = ({ marketplace, nft }) => {
             {items.map((item, idx) => (
               <Col key={idx} className="overflow-hidden">
                 <Card>
-                  <Card.Img variant="top" src={item.image} />
+                  <div className="card-img">
+                    <Card.Img variant="top" src={item.image} />
+                  </div>
+                  
                   <Card.Body color="secondary">
-                    <Card.Title>{item.name}</Card.Title>
-                    <Card.Text>
+                    <div className="top">
+                      <div className="card-name">
+                        <div className="card-of-name">NFT Name</div>
+                        <Card.Text>{item.name}</Card.Text>
+                        </div>
+                        <div className="card-price">
+                      <div className="card-of-name">
+                        Price
+                      </div>
+                      <Card.Text>
+                      {ethers.utils.formatEther(item.totalPrice)} ETH
+                    </Card.Text></div>
+                    </div>
+                    
+                    <div className="card-desc">
+                      <div className="card-of-name">Description</div>
+                      <Card.Text>
                       {item.description}
                     </Card.Text>
+                    </div>
                   </Card.Body>
                   <Card.Footer>
                     <div className='d-grid'>
                       <Button onClick={() => buyMarketItem(item)} variant="primary" size="lg">
-                        Buy for {ethers.utils.formatEther(item.totalPrice)} ETH
+                        Buy
                       </Button>
                     </div>
                   </Card.Footer>
@@ -76,7 +95,7 @@ const Home = ({ marketplace, nft }) => {
         </div>
         : (
           <main style={{ padding: "1rem 0" }}>
-            <h2>No listed assets</h2>
+            <h2>Nothing here...</h2>
           </main>
         )}
     </div>
