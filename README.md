@@ -37,3 +37,10 @@ $ npm run start
 3. On page MylistedItems we can see all our NFTs (sold and not yet)
 
 4. On the page MyPurchases all NFTs you bought will be there.
+
+## Examples
+#Creating
+
+![image](https://user-images.githubusercontent.com/80254372/202808243-f6b86018-eaa3-4946-902e-88a8d1cfeff8.png)
+
+
