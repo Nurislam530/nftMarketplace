@@ -45,9 +45,8 @@ $ npm run start
 
 # Buying
 
-![image](https://user-images.githubusercontent.com/80254372/202808430-1df7266d-9243-4613-98ec-5a1c0270ef0e.png)
+![image](https://user-images.githubusercontent.com/80254372/202808872-a75578ed-b2f0-42ef-ab62-c7908f5b9243.png)
 
-# My NFTs
 
 
 
