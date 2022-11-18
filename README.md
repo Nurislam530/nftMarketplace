@@ -1,48 +1,39 @@
-# NFT Marketplace
+# NFT Store
+It is a decentralized application for creating and selling ERC721 tokens using ERC20 tokens. 
 
-## Technology Stack & Tools
+## Prerequisites for the initial launch.
+- Node.js
+- Hardhat
+- Metamask
 
-- Solidity (Writing Smart Contract)
-- Javascript (React & Testing)
-- [Ethers](https://docs.ethers.io/v5/) (Blockchain Interaction)
-- [Hardhat](https://hardhat.org/) (Development Framework)
-- [Ipfs](https://ipfs.io/) (Metadata storage)
-- [React routers](https://v5.reactrouter.com/) (Navigational components)
-
-## Requirements For Initial Setup
-- Install [NodeJS](https://nodejs.org/en/), should work with any node version below 16.5.0
-- Install [Hardhat](https://hardhat.org/)
-
-## Setting Up
-### 1. Clone/Download the Repository
-
-### 2. Install Dependencies:
+## Installation.
+### 1. Download the repository
+### 2. Install the dependencies:
 ```
 $ cd nft_marketplace
 $ npm install
 ```
-### 3. Boot up local development blockchain
+### 3. Start the local blockchain network:
 ```
-$ cd nft_marketplace
 $ npx hardhat node
 ```
+### 4. Connect your metamask wallet to the network:
+- Copy the private address key and import it into metamask
+- Connect your metamask to the network hardhat: "127.0.0.1:8545", chainID: "31337".
+### 5. Run the "deploy.js" file to deploy all smart contracts:
+```
+$ npx hardhat run src/backend/scripts/deploy.js --network localhost
+```
+### 6. Run the project:
+```
+$ npm run start
+```
 
-### 4. Connect development blockchain accounts to Metamask
-- Copy private key of the addresses and import to Metamask
-- Connect your metamask to hardhat blockchain, network 127.0.0.1:8545.
-- If you have not added hardhat to the list of networks on your metamask, open up a browser, click the fox icon, then click the top center dropdown button that lists all the available networks then click add networks. A form should pop up. For the "Network Name" field enter "Hardhat". For the "New RPC URL" field enter "http://127.0.0.1:8545". For the chain ID enter "31337". Then click save.  
+## Usage
+1. On the Create page we can create an NFT and put it up for sale. To do this we need to 1. Upload a picture in any format. 2. Enter data about title, description and price. 3. Click on the button "create". Next you need to confirm all requests from metamask.
 
+2. Next, on the Home page we should see all NFTs available for sale. There we can buy one of them by clicking on the button "buy". 
 
-### 5. Migrate Smart Contracts
-`npx hardhat run src/backend/scripts/deploy.js --network localhost`
+3. On page MylistedItems we can see all our NFTs (sold and not yet)
 
-### 6. Run Tests
-`$ npx hardhat test`
-
-### 7. Launch Frontend
-`$ npm run start`
-
-License
-----
-MIT
-
+4. On the page MyPurchases all NFTs you bought will be there.
